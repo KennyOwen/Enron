@@ -3,3 +3,60 @@ The Enron database is a valuable resource for understanding the operations and c
 
 Database Overview:
 The Enron database consists of a comprehensive collection of emails and other data related to the company's operations. It serves as a valuable source for studying Enron's communication networks, identifying key players, and analyzing the content of their interactions.
+
+Key Tables:
+Table: Employeelist
+eid: Employee-ID
+firstName: First name
+lastName: Last name
+Email_id: Email address (primary). This one can be found in the other
+tables/dataframes and is useful for matching.
+Email2: Additional email address that was replace by the primary one.
+Email3: See above
+Email4: See above
+folder: The user’s folder in the original data dump.
+status: Last position of the employee. “N/A” are unknown.
+
+Table: Message
+mid: Message-ID. Refers to the rows in recipientinfo and referenceinfo.
+sender: Email address (updated)
+date: Date.
+message_id: Internal message-ID from the mailserver.
+subject: Email subject
+body: Email body. Can be truncated in the R-Version!
+folder: Exact folder of the e-mail inclusing subfolders.
+
+Table: Recipientinfo
+rid: Reference-ID
+mid: Message-ID from the message-table/-dataframe
+rtype: Shows if the receiver got the email normally (“to”), as a carbon
+copy (“cc”) or a blind carbon copy (“bcc”).
+rvalue: The recipient’s email address.
+
+Table: Referenceinfo
+rfid: referenceinfo-ID
+mid: Message-ID
+reference: Contains the whole email with shortend headers.
+
+Analysis:
+Communication Patterns: By analyzing the email data, it is possible to uncover communication patterns within Enron. This includes identifying the most active senders and recipients, assessing the frequency and volume of emails exchanged between individuals, and determining communication trends over time.
+
+Trends: Graphs showed an extensives influx of emails throughout the years but patterns emerges mostdly througt the beginning of the lower quartile to the start of the upper wuartile of the year. 
+  These influx of emails also span and varies though the months and even more detail of the trends can be seen in the week graphs. 
+    The top senders of the organisations are: 
+      Sender: jeff.dasovich@enron.com, Count: 6273
+      Sender: j.kaminski@enron.com, Count: 5838
+      Sender: kay.mann@enron.com, Count: 5100
+      Sender: sara.shackleton@enron.com, Count: 4797
+      Sender: tana.jones@enron.com, Count: 4437
+      
+    The top recipients of the organisation are: 
+      Recipient: no.address@enron.com, Count: 19198
+      Recipient: jeff.dasovich@enron.com, Count: 11137
+      Recipient: richard.shapiro@enron.com, Count: 11015
+      Recipient: steven.j.kean@enron.com, Count: 10873
+      Recipient: james.d.steffes@enron.com, Count: 10615
+      
+ Conclusion:
+The Enron database offers a rich and extensive collection of email and related data to emails and seasonal trends per time period. Also the amount of emails worked with by the top sender and recipients amounts to a huge number up to thousands of emails were sent and worked with. 
+This shows how big and extensive the company was back in the day. 
